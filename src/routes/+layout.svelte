@@ -1,12 +1,13 @@
 <script lang="ts">
 	import '../app.css';
 	import IncenseSmoke from '$lib/components/IncenseSmoke.svelte';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	let { children } = $props();
 
 	onMount(() => {
-		const audio = new Audio('/sounds/ambient-bg.mp3');
+		const audio = new Audio(`${base}/sounds/ambient-bg.mp3`);
 		audio.loop = true;
 		audio.volume = 0.3;
 
