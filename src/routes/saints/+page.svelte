@@ -35,11 +35,24 @@
 		</p>
 	</div>
 
-	<!-- Empty state + CTA -->
+	<!-- Saints list -->
+	<ul class="flex flex-col items-center gap-4 mb-6 list-none p-0 m-0">
+		<li class="group relative block w-72 px-8 py-5 text-center">
+			<span class="absolute inset-0 border border-[var(--gold)] opacity-60"></span>
+			<span class="absolute inset-[3px] border border-[var(--gold)] opacity-30"></span>
+			<span class="absolute top-[-2px] left-[-2px] h-3 w-3 border-t-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute top-[-2px] right-[-2px] h-3 w-3 border-t-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] left-[-2px] h-3 w-3 border-b-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="font-display relative z-10 text-xl tracking-wider text-[var(--gold-light)]">
+				Данило Павенко
+			</span>
+		</li>
+	</ul>
+
+	<!-- CTA to join -->
 	<div class="w-full max-w-sm text-center mb-6">
-		<p class="font-body text-5xl mb-4 opacity-30">📖</p>
-		<p class="font-body text-lg leading-relaxed text-[var(--gold)]/50">
-			git log поки порожній, але чекає на перші коміти.
+		<p class="font-body text-sm leading-relaxed text-[var(--gold)]/50">
 			Кожен хто зробить пожертву — отримає вічний merge у цю святу книгу.
 		</p>
 	</div>
