@@ -62,12 +62,12 @@
 		<p class="font-display mb-3 text-sm tracking-widest text-[var(--gold)]/40 uppercase">
 			{randomPhrase}
 		</p>
-		<div class="overflow-hidden rounded-xl border border-[var(--gold)]/20 shadow-[0_0_20px_rgba(201,168,76,0.08)]">
+		<a href="https://send.monobank.ua/jar/3v3EZtAVBa" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-[var(--gold)]/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
 			<img
 				src="{base}/banka.jpg"
 				alt="QR-код для пожертви"
 				class="w-48 sm:w-56"
 			/>
-		</div>
+		</a>
 	</div>
 </div>
