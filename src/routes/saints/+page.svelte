@@ -48,6 +48,28 @@
 				Данило Павенко
 			</span>
 		</li>
+		<li class="group relative block w-72 px-8 py-5 text-center">
+			<span class="absolute inset-0 border border-[var(--gold)] opacity-60"></span>
+			<span class="absolute inset-[3px] border border-[var(--gold)] opacity-30"></span>
+			<span class="absolute top-[-2px] left-[-2px] h-3 w-3 border-t-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute top-[-2px] right-[-2px] h-3 w-3 border-t-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] left-[-2px] h-3 w-3 border-b-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="font-display relative z-10 text-xl tracking-wider text-[var(--gold-light)]">
+				Оксана Нараєвська
+			</span>
+		</li>
+		<li class="group relative block w-72 px-8 py-5 text-center">
+			<span class="absolute inset-0 border border-[var(--gold)] opacity-60"></span>
+			<span class="absolute inset-[3px] border border-[var(--gold)] opacity-30"></span>
+			<span class="absolute top-[-2px] left-[-2px] h-3 w-3 border-t-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute top-[-2px] right-[-2px] h-3 w-3 border-t-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] left-[-2px] h-3 w-3 border-b-2 border-l-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-[var(--gold-light)] opacity-70"></span>
+			<span class="font-display relative z-10 text-xl tracking-wider text-[var(--gold-light)]">
+				Євген Громадський
+			</span>
+		</li>
 	</ul>
 
 	<!-- CTA to join -->
