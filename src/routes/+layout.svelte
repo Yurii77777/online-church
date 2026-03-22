@@ -7,11 +7,13 @@
 	let { children } = $props();
 
 	onMount(() => {
-		const audio = new Audio(`${base}/sounds/ambient-bg.mp3`);
+		const audio = new Audio();
+		audio.preload = 'none';
 		audio.loop = true;
 		audio.volume = 0.3;
 
 		function startAmbient() {
+			audio.src = `${base}/sounds/ambient-bg.mp3`;
 			audio.play().catch(() => {});
 			document.removeEventListener('click', startAmbient);
 			document.removeEventListener('touchstart', startAmbient);

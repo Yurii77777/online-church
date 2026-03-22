@@ -18,14 +18,14 @@
 <div class="flex flex-1 flex-col items-center px-4 py-10">
 	<!-- Deacon photo -->
 	<div class="mb-8 flex flex-col items-center">
-		<div class="relative h-36 w-36 overflow-hidden rounded-full border-2 border-[var(--gold)]/40 shadow-[0_0_25px_rgba(201,168,76,0.15)] sm:h-44 sm:w-44">
+		<div class="relative h-36 w-36 overflow-hidden rounded-full border-2 border-(--gold)/40 shadow-[0_0_25px_rgba(201,168,76,0.15)] sm:h-44 sm:w-44">
 			<img
 				src="{base}/diak.jpg"
 				alt="Святий Преподобний Дяк Юрій"
 				class="h-full w-full object-cover object-top"
 			/>
 		</div>
-		<p class="font-display mt-3 text-sm tracking-wider text-[var(--gold)]/50">
+		<p class="font-display mt-3 text-base tracking-wider text-(--gold)/70">
 			Lead Spiritual Engineer
 		</p>
 	</div>
@@ -50,10 +50,10 @@
 			</defs>
 		</svg>
 
-		<h1 class="font-display text-3xl font-semibold tracking-wide text-[var(--gold-light)] sm:text-4xl">
+		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
 			Онлайн Церква
 		</h1>
-		<p class="font-body mt-2 text-lg tracking-wide text-[var(--gold)]/60">
+		<p class="font-body mt-2 text-lg tracking-wide text-(--gold)/60">
 			Тиша. Молитва. Uptime 99.9%.
 		</p>
 	</div>
@@ -62,18 +62,21 @@
 	<div class="flex flex-col items-center gap-6">
 		<ChurchButton href="/candle" icon="🕯" label="Поставити свічку" />
 		<ChurchButton href="/bless" icon="✝" label="Посвятити" />
+		<ChurchButton href="/confession" icon="🙏" label="Сповідальня" />
+		<ChurchButton href="/requiem" icon="⚰️" label="Панахида" />
+		<ChurchButton href="/prayer" icon="📿" label="Молебень" />
 		<ChurchButton href="/saints" icon="📜" label="Книга Святих" />
 	</div>
 
 	<!-- Divider -->
-	<div class="mt-10 h-[1px] w-40 bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent"></div>
+	<div class="mt-10 h-[1px] w-40 bg-gradient-to-r from-transparent via-(--gold)/30 to-transparent"></div>
 
 	<!-- Donation QR -->
 	<div id="donate" class="mt-8 flex flex-col items-center">
-		<p class="font-display mb-3 text-sm tracking-widest text-[var(--gold)]/40 uppercase">
+		<p class="font-display mb-3 text-base tracking-widest text-(--gold)/60 uppercase">
 			{randomPhrase}
 		</p>
-		<a href="https://send.monobank.ua/jar/3v3EZtAVBa" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-[var(--gold)]/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
+		<a href="https://send.monobank.ua/jar/3v3EZtAVBa" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
 			<img
 				src="{base}/banka.jpg"
 				alt="QR-код для пожертви"

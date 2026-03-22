@@ -23,25 +23,25 @@
 	class:translate-y-0={visible}
 >
 	<!-- Decorative cross -->
-	<div class="mb-6 text-3xl text-[var(--gold)]/60">✝</div>
+	<div class="mb-6 text-3xl text-(--gold)/60">✝</div>
 
 	<!-- Blessing text -->
-	<p class="font-display max-w-lg text-2xl leading-relaxed font-semibold tracking-wide text-[var(--gold-light)] sm:text-3xl">
+	<p class="font-display max-w-lg text-2xl leading-relaxed font-semibold tracking-wide text-(--gold-light) sm:text-3xl">
 		{blessing}
 	</p>
 
 	<!-- Decorative line -->
-	<div class="mt-6 h-[1px] w-32 bg-gradient-to-r from-transparent via-[var(--gold)]/50 to-transparent"></div>
+	<div class="mt-6 h-[1px] w-32 bg-gradient-to-r from-transparent via-(--gold)/50 to-transparent"></div>
 
 	<!-- Item that was blessed -->
 	{#if item}
-		<p class="font-body mt-4 text-base tracking-wide text-[var(--gold)]/40">
+		<p class="font-body mt-4 text-base tracking-wide text-(--gold)/40">
 			Посвячено: {item}
 		</p>
 	{/if}
 
 	<!-- Amen -->
-	<p class="font-body mt-3 text-lg tracking-[0.3em] text-[var(--gold)]/50">
+	<p class="font-body mt-3 text-lg tracking-[0.3em] text-(--gold)/50">
 		АМІНЬ // TODO: more faith
 	</p>
 </div>

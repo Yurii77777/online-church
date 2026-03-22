@@ -642,13 +642,13 @@
 	<div class="absolute top-0 left-0 right-0 z-40 flex items-center justify-between p-4">
 		<a
 			href="{base}/bless"
-			class="font-body text-[var(--gold)]/70 hover:text-[var(--gold)] transition-colors text-lg no-underline"
+			class="font-body text-(--gold)/70 hover:text-(--gold) transition-colors text-lg no-underline"
 		>
 			&#8592; Назад
 		</a>
 		<button
 			onclick={toggleMute}
-			class="text-[var(--gold)]/70 hover:text-[var(--gold)] transition-colors text-xl bg-transparent border-none cursor-pointer"
+			class="text-(--gold)/70 hover:text-(--gold) transition-colors text-xl bg-transparent border-none cursor-pointer"
 		>
 			{muted ? '🔇' : '🔊'}
 		</button>
@@ -673,19 +673,19 @@
 		<div class="absolute bottom-8 left-0 right-0 z-40 flex flex-col items-center gap-4">
 			<button
 				onclick={replay}
-				class="font-display cursor-pointer border border-[var(--gold)]/50 bg-transparent px-6 py-3 text-lg tracking-wider text-[var(--gold-light)] transition-all duration-300 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 hover:shadow-[0_0_20px_rgba(201,168,76,0.2)]"
+				class="font-display cursor-pointer border border-(--gold)/50 bg-transparent px-6 py-3 text-lg tracking-wider text-(--gold-light) transition-all duration-300 hover:border-(--gold) hover:bg-(--gold)/10 hover:shadow-[0_0_20px_rgba(201,168,76,0.2)]"
 			>
 				Ще раз
 			</button>
 			<div class="text-center animate-[fadeIn_2s_ease-in-out]">
-				<p class="font-body text-sm text-[var(--gold)]/40">
+				<p class="font-body text-base text-(--gold)/60">
 					Святая вода v2.0 — тепер з донатом 💧
 				</p>
 				<div class="mt-1 flex flex-col items-center gap-1">
-					<a href="{base}/bless#donate" class="font-body text-xs text-[var(--gold)]/30 hover:text-[var(--gold)]/60 transition-colors no-underline">
+					<a href="{base}/bless#donate" class="font-body text-sm text-(--gold)/50 hover:text-(--gold)/80 transition-colors no-underline">
 						Підтримати храм
 					</a>
-					<a href="{base}/saints" class="font-body text-xs text-[var(--gold)]/30 hover:text-[var(--gold)]/60 transition-colors no-underline">
+					<a href="{base}/saints" class="font-body text-sm text-(--gold)/50 hover:text-(--gold)/80 transition-colors no-underline">
 						Потрап до Книги Святих →
 					</a>
 				</div>
