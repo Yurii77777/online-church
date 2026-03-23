@@ -3,6 +3,7 @@
 	import IncenseSmoke from '$lib/components/IncenseSmoke.svelte';
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { ambientAudio } from '$lib/audioStore';
 
 	let { children } = $props();
 
@@ -11,6 +12,8 @@
 		audio.preload = 'none';
 		audio.loop = true;
 		audio.volume = 0.3;
+
+		ambientAudio.set(audio);
 
 		function startAmbient() {
 			audio.src = `${base}/sounds/ambient-bg.mp3`;
@@ -25,6 +28,7 @@
 		return () => {
 			audio.pause();
 			audio.src = '';
+			ambientAudio.set(null);
 			document.removeEventListener('click', startAmbient);
 			document.removeEventListener('touchstart', startAmbient);
 		};

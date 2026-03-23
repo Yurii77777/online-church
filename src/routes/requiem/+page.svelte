@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
+	import { ambientAudio } from '$lib/audioStore';
 
 	const examples = [
 		'jQuery плагін 2014 року',
@@ -54,6 +57,23 @@
 		result = '';
 		done = false;
 	}
+
+	onMount(() => {
+		const ambient = get(ambientAudio);
+		if (ambient) ambient.pause();
+
+		const requiem = new Audio(`${base}/sounds/ostannia-put.mp3`);
+		requiem.volume = 0.3;
+		requiem.loop = true;
+		requiem.play().catch(() => {});
+
+		return () => {
+			requiem.pause();
+			requiem.src = '';
+			const amb = get(ambientAudio);
+			if (amb && amb.src) amb.play().catch(() => {});
+		};
+	});
 </script>
 
 <div class="flex flex-1 flex-col items-center px-4 py-8" style="min-height: 100vh;">
