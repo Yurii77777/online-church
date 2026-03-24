@@ -65,6 +65,7 @@
 		<ChurchButton href="/confession" icon="🙏" label="Сповідальня" />
 		<ChurchButton href="/requiem" icon="⚰️" label="Панахида" />
 		<ChurchButton href="/prayer" icon="📿" label="Молебень" />
+		<ChurchButton href="/vacancy" icon="📋" label="Освятити вакансію" />
 		<ChurchButton href="/saints" icon="📜" label="Книга Святих" />
 	</div>
 

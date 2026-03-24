@@ -1,18 +1,9 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { onMount } from 'svelte';
-	import { get } from 'svelte/store';
-	import { ambientAudio } from '$lib/audioStore';
 
 	const examples = [
-		'jQuery плагін 2014 року',
-		'REST API на PHP 5.6',
-		'Монорепо на 800k рядків',
-		'Sprint Q3 2023',
-		'Мікросервіс payments-v1',
-		'Кандидат після 5 раундів співбесід, що зник без відповіді',
-		'Вакансія заморожена після 3 місяців пошуку',
-		'LinkedIn InMail з відкритою ставкою, на якийніхто не відповів',
+		'Senior Full-Stack Developer (React/Node) — competitive salary, we are a family, must know: React, Node, AWS, Docker, Kubernetes, TypeScript, Python, GraphQL, Redis, MongoDB — 5+ years exp required',
+		'Junior Frontend Developer — досвід від 3 років, знання Vue, React, Angular обов\'язково, зарплата обговорюється на співбесіді, неоплачуваний випробувальний термін 3 місяці',
 	];
 
 	let subject = $state('');
@@ -20,7 +11,7 @@
 	let result = $state('');
 	let done = $state(false);
 
-	async function performRequiem() {
+	async function performVacancy() {
 		const text = subject.trim();
 		if (!text || streaming) return;
 
@@ -29,7 +20,7 @@
 		done = false;
 
 		try {
-			const response = await fetch('/api/requiem', {
+			const response = await fetch('/api/vacancy', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ subject: text })
@@ -60,23 +51,6 @@
 		result = '';
 		done = false;
 	}
-
-	onMount(() => {
-		const ambient = get(ambientAudio);
-		if (ambient) ambient.pause();
-
-		const requiem = new Audio(`${base}/sounds/ostannia-put.mp3`);
-		requiem.volume = 0.3;
-		requiem.loop = true;
-		requiem.play().catch(() => {});
-
-		return () => {
-			requiem.pause();
-			requiem.src = '';
-			const amb = get(ambientAudio);
-			if (amb && amb.src) amb.play().catch(() => {});
-		};
-	});
 </script>
 
 <div class="flex flex-1 flex-col items-center px-4 py-8" style="min-height: 100vh;">
@@ -92,12 +66,12 @@
 
 	<!-- Title -->
 	<div class="mb-8 text-center">
-		<div class="mb-3 text-3xl">⚰️</div>
+		<div class="mb-3 text-3xl">📋</div>
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
-			Панахида
+			Освячення вакансії
 		</h1>
 		<p class="font-body mt-3 text-base text-(--gold)/70 max-w-xs leading-relaxed text-center">
-			Відспіваємо будь-який код, проект, реліз або технологію, що відійшли у вічність
+			Пастор перевірить вакансію на гріхи і винесе вердикт перед публікацією
 		</p>
 	</div>
 
@@ -107,7 +81,7 @@
 		<!-- Input form -->
 		<div class="w-full max-w-md">
 			<p class="font-body text-base text-(--gold)/60 mb-4 text-center">
-				Що відспіваємо, чадо?
+				Вставте текст вакансії, чадо
 			</p>
 
 			<div class="relative mb-3">
@@ -118,31 +92,32 @@
 				<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
 				<textarea
 					bind:value={subject}
-					placeholder="Наприклад: jQuery плагін 2014 року, Sprint Q3, мікросервіс payments-v1..."
-					rows="3"
+					placeholder="Вставте сюди текст вакансії — назву, вимоги, обов'язки, умови..."
+					rows="10"
 					disabled={streaming}
 					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/40 focus:outline-none disabled:opacity-40"
 				></textarea>
 			</div>
 
 			<!-- Examples -->
-			<div class="mb-4 flex flex-wrap gap-2">
+			<p class="font-body text-xs text-(--gold)/40 mb-2">Або спробуйте грішний приклад:</p>
+			<div class="mb-4 flex flex-col gap-2">
 				{#each examples as ex}
 					<button
 						onclick={() => subject = ex}
-						class="font-body text-sm text-(--gold)/50 border border-(--gold)/20 rounded-lg px-3 py-1 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer"
+						class="font-body text-sm text-(--gold)/50 border border-(--gold)/20 rounded-lg px-3 py-2 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer text-left leading-relaxed"
 					>
-						{ex}
+						{ex.length > 80 ? ex.slice(0, 80) + '...' : ex}
 					</button>
 				{/each}
 			</div>
 
 			<button
-				onclick={performRequiem}
+				onclick={performVacancy}
 				disabled={streaming || !subject.trim()}
 				class="font-display w-full rounded-xl border border-(--gold)/40 py-3 text-base tracking-widest text-(--gold-light) transition-all hover:border-(--gold)/70 hover:bg-(--gold)/5 disabled:cursor-not-allowed disabled:opacity-30 uppercase"
 			>
-				{streaming ? 'Пастор читає молитву...' : '⚰️ Відспівати'}
+				{streaming ? 'Пастор читає вакансію...' : '📋 Освятити вакансію'}
 			</button>
 		</div>
 	{:else}
@@ -168,8 +143,8 @@
 				>
 					<span class="text-xl">🕍</span>
 					<div class="flex-1">
-						<p class="font-display text-sm tracking-wide text-(--gold-light)/90">Освятити панахиду пожертвою</p>
-						<p class="font-body text-xs text-(--gold)/60 mt-0.5">Обряд без пожертви — як деплой без тестів</p>
+						<p class="font-display text-sm tracking-wide text-(--gold-light)/90">Освятити вакансію пожертвою</p>
+						<p class="font-body text-xs text-(--gold)/60 mt-0.5">Благословенна вакансія залучає праведних кандидатів</p>
 					</div>
 					<span class="font-body text-sm text-(--gold)/50 group-hover:text-(--gold)/80 transition-colors">→</span>
 				</a>
@@ -178,7 +153,7 @@
 					onclick={reset}
 					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/60 transition-all hover:border-(--gold)/50 hover:text-(--gold)/90 uppercase bg-transparent cursor-pointer"
 				>
-					Відспівати ще одного
+					Освятити ще одну вакансію
 				</button>
 			{/if}
 		</div>
