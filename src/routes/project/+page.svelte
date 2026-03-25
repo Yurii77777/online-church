@@ -151,21 +151,19 @@
 					<span class="font-body text-sm text-(--gold)/40 group-hover:text-(--gold)/70 transition-colors">→</span>
 				</a>
 
-				<!-- Donation -->
-				<a
-					href="https://send.monobank.ua/jar/3v3EZtAVBa"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="group mb-4 flex w-full items-center gap-3 rounded-xl border border-(--gold)/35 px-4 py-3 no-underline transition-all hover:border-(--gold)/60 hover:bg-(--gold)/5"
-					style="background: rgba(201,168,76,0.04);"
-				>
-					<span class="text-xl">🕍</span>
-					<div class="flex-1">
-						<p class="font-display text-base tracking-wide text-(--gold-light)">Підсилити освячення пожертвою</p>
-						<p class="font-body text-sm text-(--gold)/80 mt-0.5">Пожертва захищає проект від багів та зірваних дедлайнів</p>
-					</div>
-					<span class="font-body text-sm text-(--gold)/50 group-hover:text-(--gold)/80 transition-colors">→</span>
-				</a>
+				<!-- Donation QR -->
+				<div class="mt-4 mb-4 flex flex-col items-center">
+					<p class="font-display mb-3 text-base tracking-widest text-(--gold)/80 uppercase">
+						Підсилити освячення пожертвою
+					</p>
+					<a href="https://send.monobank.ua/jar/rQcpy7d5s" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
+						<img
+							src="{base}/deciatyna.jpg"
+							alt="QR-код для пожертви"
+							class="w-48 sm:w-56"
+						/>
+					</a>
+				</div>
 
 				<button
 					onclick={reset}

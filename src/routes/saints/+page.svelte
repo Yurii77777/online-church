@@ -78,7 +78,7 @@
 		<p class="font-display mb-3 text-base tracking-widest text-(--gold)/80 uppercase">
 			{randomPhrase}
 		</p>
-		<a href="https://send.monobank.ua/jar/3v3EZtAVBa" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
+		<a href="https://send.monobank.ua/jar/rQcpy7d5s" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
 			<img
 				src="{base}/deciatyna.jpg"
 				alt="QR-код для пожертви"

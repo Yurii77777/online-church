@@ -137,21 +137,19 @@
 	<!-- Divider -->
 	<div class="my-4 h-[1px] w-full max-w-md bg-gradient-to-r from-transparent via-(--gold)/20 to-transparent"></div>
 
-	<!-- Donation nudge -->
-	<a
-		href="https://send.monobank.ua/jar/3v3EZtAVBa"
-		target="_blank"
-		rel="noopener noreferrer"
-		class="group mb-4 flex w-full max-w-md items-center gap-3 rounded-xl border border-(--gold)/25 px-4 py-3 no-underline transition-all hover:border-(--gold)/50 hover:bg-(--gold)/5"
-		style="background: rgba(201,168,76,0.03);"
-	>
-		<span class="text-xl">🕍</span>
-		<div class="flex-1">
-			<p class="font-display text-base tracking-wide text-(--gold-light)">Підтримати храм</p>
-			<p class="font-body text-sm text-(--gold)/70 mt-0.5">Пожертва полегшує тяжкість гріхів</p>
-		</div>
-		<span class="font-body text-sm text-(--gold)/70 group-hover:text-(--gold)/70 transition-colors">monobank →</span>
-	</a>
+	<!-- Donation QR -->
+	<div class="mt-4 mb-4 flex flex-col items-center w-full max-w-md">
+		<p class="font-display mb-3 text-base tracking-widest text-(--gold)/80 uppercase">
+			Підтримати храм
+		</p>
+		<a href="https://send.monobank.ua/jar/rQcpy7d5s" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
+			<img
+				src="{base}/deciatyna.jpg"
+				alt="QR-код для пожертви"
+				class="w-48 sm:w-56"
+			/>
+		</a>
+	</div>
 
 	<!-- Input area -->
 	<div class="w-full max-w-md">
