@@ -84,7 +84,7 @@
 	<div class="mb-6 flex w-full max-w-md items-center">
 		<a
 			href="{base}/"
-			class="font-body text-(--gold)/70 hover:text-(--gold) transition-colors text-lg no-underline"
+			class="font-body text-(--gold)/90 hover:text-(--gold) transition-colors text-lg no-underline"
 		>
 			&#8592; Назад
 		</a>
@@ -96,7 +96,7 @@
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
 			Панахида
 		</h1>
-		<p class="font-body mt-3 text-base text-(--gold)/70 max-w-xs leading-relaxed text-center">
+		<p class="font-body mt-3 text-base text-(--gold)/90 max-w-xs leading-relaxed text-center">
 			Відспіваємо будь-який код, проект, реліз або технологію, що відійшли у вічність
 		</p>
 	</div>
@@ -106,7 +106,7 @@
 	{#if !result}
 		<!-- Input form -->
 		<div class="w-full max-w-md">
-			<p class="font-body text-base text-(--gold)/60 mb-4 text-center">
+			<p class="font-body text-base text-(--gold)/80 mb-4 text-center">
 				Що відспіваємо, чадо?
 			</p>
 
@@ -121,7 +121,7 @@
 					placeholder="Наприклад: jQuery плагін 2014 року, Sprint Q3, мікросервіс payments-v1..."
 					rows="3"
 					disabled={streaming}
-					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/40 focus:outline-none disabled:opacity-40"
+					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/60 focus:outline-none disabled:opacity-40"
 				></textarea>
 			</div>
 
@@ -130,7 +130,7 @@
 				{#each examples as ex}
 					<button
 						onclick={() => subject = ex}
-						class="font-body text-sm text-(--gold)/50 border border-(--gold)/20 rounded-lg px-3 py-1 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer"
+						class="font-body text-base text-(--gold)/70 border border-(--gold)/20 rounded-lg px-3 py-1 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer"
 					>
 						{ex}
 					</button>
@@ -149,7 +149,7 @@
 		<!-- Result -->
 		<div class="w-full max-w-md">
 			<div class="rounded-xl border border-(--gold)/20 px-6 py-5 mb-6" style="background: rgba(201,168,76,0.03);">
-				<p class="font-body text-sm text-(--gold)/60 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
+				<p class="font-body text-base text-(--gold)/80 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
 				{#if streaming}
 					<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{result}<span class="animate-pulse">▊</span></p>
 				{:else}
@@ -168,15 +168,15 @@
 				>
 					<span class="text-xl">🕍</span>
 					<div class="flex-1">
-						<p class="font-display text-sm tracking-wide text-(--gold-light)/90">Освятити панахиду пожертвою</p>
-						<p class="font-body text-xs text-(--gold)/60 mt-0.5">Обряд без пожертви — як деплой без тестів</p>
+						<p class="font-display text-base tracking-wide text-(--gold-light)">Освятити панахиду пожертвою</p>
+						<p class="font-body text-sm text-(--gold)/80 mt-0.5">Обряд без пожертви — як деплой без тестів</p>
 					</div>
 					<span class="font-body text-sm text-(--gold)/50 group-hover:text-(--gold)/80 transition-colors">→</span>
 				</a>
 
 				<button
 					onclick={reset}
-					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/60 transition-all hover:border-(--gold)/50 hover:text-(--gold)/90 uppercase bg-transparent cursor-pointer"
+					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/80 transition-all hover:border-(--gold)/50 hover:text-(--gold) uppercase bg-transparent cursor-pointer"
 				>
 					Відспівати ще одного
 				</button>

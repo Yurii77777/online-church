@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 
 	const examples = [
-		'Senior Full-Stack Developer (React/Node) — competitive salary, we are a family, must know: React, Node, AWS, Docker, Kubernetes, TypeScript, Python, GraphQL, Redis, MongoDB — 5+ years exp required',
+		'Senior Full-Stack Developer — competitive salary, we are a family, must know: React, Angular, Vue, Node, AWS, Docker, Kubernetes, TypeScript, Python, GraphQL, Redis, MongoDB — 5+ years exp required',
 		'Junior Frontend Developer — досвід від 3 років, знання Vue, React, Angular обов\'язково, зарплата обговорюється на співбесіді, неоплачуваний випробувальний термін 3 місяці',
 	];
 
@@ -58,7 +58,7 @@
 	<div class="mb-6 flex w-full max-w-md items-center">
 		<a
 			href="{base}/"
-			class="font-body text-(--gold)/70 hover:text-(--gold) transition-colors text-lg no-underline"
+			class="font-body text-(--gold)/90 hover:text-(--gold) transition-colors text-lg no-underline"
 		>
 			&#8592; Назад
 		</a>
@@ -70,7 +70,7 @@
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
 			Освячення вакансії
 		</h1>
-		<p class="font-body mt-3 text-base text-(--gold)/70 max-w-xs leading-relaxed text-center">
+		<p class="font-body mt-3 text-base text-(--gold)/90 max-w-xs leading-relaxed text-center">
 			Пастор перевірить вакансію на гріхи і винесе вердикт перед публікацією
 		</p>
 	</div>
@@ -80,7 +80,7 @@
 	{#if !result}
 		<!-- Input form -->
 		<div class="w-full max-w-md">
-			<p class="font-body text-base text-(--gold)/60 mb-4 text-center">
+			<p class="font-body text-base text-(--gold)/80 mb-4 text-center">
 				Вставте текст вакансії, чадо
 			</p>
 
@@ -95,17 +95,17 @@
 					placeholder="Вставте сюди текст вакансії — назву, вимоги, обов'язки, умови..."
 					rows="10"
 					disabled={streaming}
-					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/40 focus:outline-none disabled:opacity-40"
+					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/60 focus:outline-none disabled:opacity-40"
 				></textarea>
 			</div>
 
 			<!-- Examples -->
-			<p class="font-body text-xs text-(--gold)/40 mb-2">Або спробуйте грішний приклад:</p>
+			<p class="font-body text-sm text-(--gold)/70 mb-2">Або спробуйте грішний приклад:</p>
 			<div class="mb-4 flex flex-col gap-2">
 				{#each examples as ex}
 					<button
 						onclick={() => subject = ex}
-						class="font-body text-sm text-(--gold)/50 border border-(--gold)/20 rounded-lg px-3 py-2 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer text-left leading-relaxed"
+						class="font-body text-base text-(--gold)/70 border border-(--gold)/20 rounded-lg px-3 py-2 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer text-left leading-relaxed"
 					>
 						{ex.length > 80 ? ex.slice(0, 80) + '...' : ex}
 					</button>
@@ -124,7 +124,7 @@
 		<!-- Result -->
 		<div class="w-full max-w-md">
 			<div class="rounded-xl border border-(--gold)/20 px-6 py-5 mb-6" style="background: rgba(201,168,76,0.03);">
-				<p class="font-body text-sm text-(--gold)/60 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
+				<p class="font-body text-base text-(--gold)/80 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
 				{#if streaming}
 					<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{result}<span class="animate-pulse">▊</span></p>
 				{:else}
@@ -143,15 +143,15 @@
 				>
 					<span class="text-xl">🕍</span>
 					<div class="flex-1">
-						<p class="font-display text-sm tracking-wide text-(--gold-light)/90">Освятити вакансію пожертвою</p>
-						<p class="font-body text-xs text-(--gold)/60 mt-0.5">Благословенна вакансія залучає праведних кандидатів</p>
+						<p class="font-display text-base tracking-wide text-(--gold-light)">Освятити вакансію пожертвою</p>
+						<p class="font-body text-sm text-(--gold)/80 mt-0.5">Благословенна вакансія залучає праведних кандидатів</p>
 					</div>
 					<span class="font-body text-sm text-(--gold)/50 group-hover:text-(--gold)/80 transition-colors">→</span>
 				</a>
 
 				<button
 					onclick={reset}
-					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/60 transition-all hover:border-(--gold)/50 hover:text-(--gold)/90 uppercase bg-transparent cursor-pointer"
+					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/80 transition-all hover:border-(--gold)/50 hover:text-(--gold) uppercase bg-transparent cursor-pointer"
 				>
 					Освятити ще одну вакансію
 				</button>

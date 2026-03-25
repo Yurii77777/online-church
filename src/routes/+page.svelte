@@ -25,7 +25,7 @@
 				class="h-full w-full object-cover object-top"
 			/>
 		</div>
-		<p class="font-display mt-3 text-base tracking-wider text-(--gold)/70">
+		<p class="font-display mt-3 text-base tracking-wider text-(--gold)/90">
 			Lead Spiritual Engineer
 		</p>
 	</div>
@@ -53,7 +53,7 @@
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
 			Онлайн Церква
 		</h1>
-		<p class="font-body mt-2 text-lg tracking-wide text-(--gold)/60">
+		<p class="font-body mt-2 text-lg tracking-wide text-(--gold)/80">
 			Тиша. Молитва. Uptime 99.9%.
 		</p>
 	</div>
@@ -66,6 +66,7 @@
 		<ChurchButton href="/requiem" icon="⚰️" label="Панахида" />
 		<ChurchButton href="/prayer" icon="📿" label="Молебень" />
 		<ChurchButton href="/vacancy" icon="📋" label="Освятити вакансію" />
+		<ChurchButton href="/project" icon="📐" label="Освятити проект" />
 		<ChurchButton href="/saints" icon="📜" label="Книга Святих" />
 	</div>
 
@@ -74,7 +75,7 @@
 
 	<!-- Donation QR -->
 	<div id="donate" class="mt-8 flex flex-col items-center">
-		<p class="font-display mb-3 text-base tracking-widest text-(--gold)/60 uppercase">
+		<p class="font-display mb-3 text-base tracking-widest text-(--gold)/80 uppercase">
 			{randomPhrase}
 		</p>
 		<a href="https://send.monobank.ua/jar/3v3EZtAVBa" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">

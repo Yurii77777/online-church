@@ -2,14 +2,12 @@
 	import { base } from '$app/paths';
 
 	const examples = [
-		'Співбесіда в Google на Senior Frontend Developer',
-		'Перформанс рев\'ю з тімлідом',
-		'Презентація MVP клієнту',
-		'Перший день на новій роботі',
-		'Переговори про підвищення зарплати',
-		'Перший холодний аутріч по LinkedIn до пасивного кандидата',
-		'Дзвінок з фінальним офером — кандидат очікував більше',
-		'Скринінг 10 кандидатів за один день',
+		'Переписуємо моноліт на мікросервіси, дедлайн — 2 місяці, команда 3 людини',
+		'MVP мобільного застосунку для стартапу, бюджет мінімальний, скоуп "ну там нескладно"',
+		'Міграція з legacy PHP на Next.js, 200k рядків коду, замовник хоче за 3 спринти',
+		'Інтеграція з 5 зовнішніми API, документація відсутня, дедлайн "вчора"',
+		'Редизайн платформи з 50k юзерів, без даунтайму, один фронтендер',
+		'Впровадження AI-фічі в існуючий продукт, стейкхолдер каже "як ChatGPT тільки краще"',
 	];
 
 	let subject = $state('');
@@ -17,7 +15,7 @@
 	let result = $state('');
 	let done = $state(false);
 
-	async function performPrayer() {
+	async function performBlessing() {
 		const text = subject.trim();
 		if (!text || streaming) return;
 
@@ -26,7 +24,7 @@
 		done = false;
 
 		try {
-			const response = await fetch('/api/prayer', {
+			const response = await fetch('/api/project', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ subject: text })
@@ -72,12 +70,12 @@
 
 	<!-- Title -->
 	<div class="mb-8 text-center">
-		<div class="mb-3 text-3xl">🙏</div>
+		<div class="mb-3 text-3xl">📐</div>
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
-			Молебень
+			Освячення проекту
 		</h1>
 		<p class="font-body mt-3 text-base text-(--gold)/90 max-w-xs leading-relaxed text-center">
-			Особиста молитва-настанова перед важливою подією
+			Духовний аудит та благословення проекту перед початком
 		</p>
 	</div>
 
@@ -87,7 +85,7 @@
 		<!-- Input form -->
 		<div class="w-full max-w-md">
 			<p class="font-body text-base text-(--gold)/80 mb-4 text-center">
-				Перед чим молимось, чадо?
+				Опишіть проект, чадо. Що будуємо, з ким, і до коли?
 			</p>
 
 			<div class="relative mb-3">
@@ -98,38 +96,39 @@
 				<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
 				<textarea
 					bind:value={subject}
-					placeholder="Наприклад: співбесіда на Senior Frontend, перформанс рев'ю, презентація MVP..."
-					rows="3"
+					placeholder="Опишіть проект: назва, скоуп, команда, дедлайн, технології, стейкхолдери..."
+					rows="6"
 					disabled={streaming}
 					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/60 focus:outline-none disabled:opacity-40"
 				></textarea>
 			</div>
 
 			<!-- Examples -->
-			<div class="mb-4 flex flex-wrap gap-2">
+			<p class="font-body text-sm text-(--gold)/70 mb-2">Або спробуйте приклад:</p>
+			<div class="mb-4 flex flex-col gap-2">
 				{#each examples as ex}
 					<button
 						onclick={() => subject = ex}
-						class="font-body text-base text-(--gold)/70 border border-(--gold)/20 rounded-lg px-3 py-1 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer"
+						class="font-body text-base text-(--gold)/70 border border-(--gold)/20 rounded-lg px-3 py-2 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer text-left leading-relaxed"
 					>
-						{ex}
+						{ex.length > 80 ? ex.slice(0, 80) + '...' : ex}
 					</button>
 				{/each}
 			</div>
 
 			<button
-				onclick={performPrayer}
+				onclick={performBlessing}
 				disabled={streaming || !subject.trim()}
 				class="font-display w-full rounded-xl border border-(--gold)/40 py-3 text-base tracking-widest text-(--gold-light) transition-all hover:border-(--gold)/70 hover:bg-(--gold)/5 disabled:cursor-not-allowed disabled:opacity-30 uppercase"
 			>
-				{streaming ? 'Пастор молиться...' : '🙏 Отримати молитву'}
+				{streaming ? 'Пастор вивчає проект...' : '📐 Освятити проект'}
 			</button>
 		</div>
 	{:else}
 		<!-- Result -->
 		<div class="w-full max-w-md">
 			<div class="rounded-xl border border-(--gold)/20 px-6 py-5 mb-6" style="background: rgba(201,168,76,0.03);">
-				<p class="font-body text-base text-(--gold)/80 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
+				<p class="font-body text-sm text-(--gold)/60 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
 				{#if streaming}
 					<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{result}<span class="animate-pulse">▊</span></p>
 				{:else}
@@ -140,14 +139,14 @@
 			{#if done}
 				<!-- Candle CTA -->
 				<a
-					href="{base}/candle/burn?for={encodeURIComponent('за успішну співбесіду')}"
+					href="{base}/candle/burn?for={encodeURIComponent('за успішний проект')}"
 					class="group mb-3 flex w-full items-center gap-3 rounded-xl border border-(--gold)/25 px-4 py-3 no-underline transition-all hover:border-(--gold)/50 hover:bg-(--gold)/5"
 					style="background: rgba(201,168,76,0.03);"
 				>
 					<span class="text-xl">🕯</span>
 					<div class="flex-1">
-						<p class="font-display text-base tracking-wide text-(--gold-light)">Поставити свічку за успіх</p>
-						<p class="font-body text-sm text-(--gold)/70 mt-0.5">Молитва + свічка = максимальний буст</p>
+						<p class="font-display text-base tracking-wide text-(--gold-light)">Поставити свічку за проект</p>
+						<p class="font-body text-sm text-(--gold)/70 mt-0.5">Освячення + свічка = захист від scope creep</p>
 					</div>
 					<span class="font-body text-sm text-(--gold)/40 group-hover:text-(--gold)/70 transition-colors">→</span>
 				</a>
@@ -162,8 +161,8 @@
 				>
 					<span class="text-xl">🕍</span>
 					<div class="flex-1">
-						<p class="font-display text-base tracking-wide text-(--gold-light)">Підсилити молитву пожертвою</p>
-						<p class="font-body text-sm text-(--gold)/80 mt-0.5">Храм молиться за всіх хто підтримує</p>
+						<p class="font-display text-base tracking-wide text-(--gold-light)">Підсилити освячення пожертвою</p>
+						<p class="font-body text-sm text-(--gold)/80 mt-0.5">Пожертва захищає проект від багів та зірваних дедлайнів</p>
 					</div>
 					<span class="font-body text-sm text-(--gold)/50 group-hover:text-(--gold)/80 transition-colors">→</span>
 				</a>
@@ -172,7 +171,7 @@
 					onclick={reset}
 					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/80 transition-all hover:border-(--gold)/50 hover:text-(--gold) uppercase bg-transparent cursor-pointer"
 				>
-					Помолитись ще раз
+					Освятити інший проект
 				</button>
 			{/if}
 		</div>

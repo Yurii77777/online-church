@@ -642,13 +642,13 @@
 	<div class="absolute top-0 left-0 right-0 z-40 flex items-center justify-between p-4">
 		<a
 			href="{base}/bless"
-			class="font-body text-(--gold)/70 hover:text-(--gold) transition-colors text-lg no-underline"
+			class="font-body text-(--gold)/90 hover:text-(--gold) transition-colors text-lg no-underline"
 		>
 			&#8592; Назад
 		</a>
 		<button
 			onclick={toggleMute}
-			class="text-(--gold)/70 hover:text-(--gold) transition-colors text-xl bg-transparent border-none cursor-pointer"
+			class="text-(--gold)/90 hover:text-(--gold) transition-colors text-xl bg-transparent border-none cursor-pointer"
 		>
 			{muted ? '🔇' : '🔊'}
 		</button>
@@ -678,14 +678,14 @@
 				Ще раз
 			</button>
 			<div class="text-center animate-[fadeIn_2s_ease-in-out]">
-				<p class="font-body text-base text-(--gold)/60">
+				<p class="font-body text-base text-(--gold)/80">
 					Святая вода v2.0 — тепер з донатом 💧
 				</p>
 				<div class="mt-1 flex flex-col items-center gap-1">
-					<a href="{base}/bless#donate" class="font-body text-sm text-(--gold)/50 hover:text-(--gold)/80 transition-colors no-underline">
+					<a href="{base}/bless#donate" class="font-body text-base text-(--gold)/70 hover:text-(--gold)/80 transition-colors no-underline">
 						Підтримати храм
 					</a>
-					<a href="{base}/saints" class="font-body text-sm text-(--gold)/50 hover:text-(--gold)/80 transition-colors no-underline">
+					<a href="{base}/saints" class="font-body text-base text-(--gold)/70 hover:text-(--gold)/80 transition-colors no-underline">
 						Потрап до Книги Святих →
 					</a>
 				</div>

@@ -67,7 +67,7 @@
 	<div class="mb-6 flex w-full max-w-md items-center justify-between">
 		<a
 			href="{base}/"
-			class="font-body text-(--gold)/70 hover:text-(--gold) transition-colors text-lg no-underline"
+			class="font-body text-(--gold)/90 hover:text-(--gold) transition-colors text-lg no-underline"
 		>
 			&#8592; Назад
 		</a>
@@ -79,7 +79,7 @@
 		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
 			Сповідальня
 		</h1>
-		<p class="font-body mt-3 text-base tracking-wide text-(--gold)/70 max-w-xs leading-relaxed">
+		<p class="font-body mt-3 text-base tracking-wide text-(--gold)/90 max-w-xs leading-relaxed">
 			Отець Клод Дебагович слухає твої IT-гріхи і відпускає їх
 		</p>
 	</div>
@@ -112,7 +112,7 @@
 				<div class="flex justify-start gap-3">
 					<div class="mt-1 flex-shrink-0 text-lg opacity-60">✝</div>
 					<div class="max-w-[85%] rounded-xl border border-(--gold)/15 px-4 py-3" style="background: rgba(201,168,76,0.04);">
-						<p class="font-body text-sm text-(--gold)/60 mb-1 tracking-widest uppercase">Отець Клод Дебагович</p>
+						<p class="font-body text-base text-(--gold)/80 mb-1 tracking-widest uppercase">Отець Клод Дебагович</p>
 						<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{msg.content}</p>
 					</div>
 				</div>
@@ -123,11 +123,11 @@
 			<div class="flex justify-start gap-3">
 				<div class="mt-1 flex-shrink-0 text-lg opacity-60">✝</div>
 				<div class="max-w-[85%] rounded-xl border border-(--gold)/15 px-4 py-3" style="background: rgba(201,168,76,0.04);">
-					<p class="font-body text-sm text-(--gold)/60 mb-1 tracking-widest uppercase">Отець Клод Дебагович</p>
+					<p class="font-body text-base text-(--gold)/80 mb-1 tracking-widest uppercase">Отець Клод Дебагович</p>
 					{#if streamingContent}
 						<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{streamingContent}<span class="animate-pulse">▊</span></p>
 					{:else}
-						<p class="font-body text-base text-(--gold)/60 italic">роздумує над твоїми гріхами<span class="animate-pulse">...</span></p>
+						<p class="font-body text-base text-(--gold)/80 italic">роздумує над твоїми гріхами<span class="animate-pulse">...</span></p>
 					{/if}
 				</div>
 			</div>
@@ -147,10 +147,10 @@
 	>
 		<span class="text-xl">🕍</span>
 		<div class="flex-1">
-			<p class="font-display text-sm tracking-wide text-(--gold-light)/80">Підтримати храм</p>
-			<p class="font-body text-xs text-(--gold)/50 mt-0.5">Пожертва полегшує тяжкість гріхів</p>
+			<p class="font-display text-base tracking-wide text-(--gold-light)">Підтримати храм</p>
+			<p class="font-body text-sm text-(--gold)/70 mt-0.5">Пожертва полегшує тяжкість гріхів</p>
 		</div>
-		<span class="font-body text-xs text-(--gold)/40 group-hover:text-(--gold)/70 transition-colors">monobank →</span>
+		<span class="font-body text-sm text-(--gold)/70 group-hover:text-(--gold)/70 transition-colors">monobank →</span>
 	</a>
 
 	<!-- Input area -->
@@ -168,7 +168,7 @@
 				placeholder="Зізнайся у своїх гріхах, чадо..."
 				rows="3"
 				disabled={streaming}
-				class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/40 focus:outline-none disabled:opacity-40"
+				class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/60 focus:outline-none disabled:opacity-40"
 			></textarea>
 		</div>
 
@@ -180,7 +180,7 @@
 			{streaming ? 'Пастор слухає...' : '✝ Сповідатись'}
 		</button>
 
-		<p class="mt-3 text-center font-body text-sm text-(--gold)/50">
+		<p class="mt-3 text-center font-body text-base text-(--gold)/70">
 			Enter — надіслати · Shift+Enter — новий рядок
 		</p>
 	</div>
