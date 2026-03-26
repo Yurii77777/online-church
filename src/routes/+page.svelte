@@ -67,7 +67,8 @@
 		<ChurchButton href="/prayer" icon="📿" label="Молебень" />
 		<ChurchButton href="/vacancy" icon="📋" label="Освятити вакансію" />
 		<ChurchButton href="/project" icon="📐" label="Освятити проект" />
-		<ChurchButton href="/saints" icon="📜" label="Книга Святих" />
+		<ChurchButton href="/indulgence" icon="📜" label="Індульгенція" />
+		<ChurchButton href="/saints" icon="📖" label="Книга Святих" />
 	</div>
 
 	<!-- Divider -->
