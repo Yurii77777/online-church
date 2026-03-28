@@ -1,0 +1,164 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+
+	const examples = [
+		'Плаваючий баг у checkout flow',
+		'Тести падають рандомно на CI',
+		'Монорепо на 500k рядків без документації',
+		'Прод падає щоп\'ятниці о 17:00',
+		'Memory leak після кожного деплою',
+		'Race condition в payment service',
+		'Legacy код на jQuery + Angular + React одночасно',
+		'Мікросервіс що ніхто не розуміє але боїться чіпати',
+	];
+
+	let subject = $state('');
+	let streaming = $state(false);
+	let result = $state('');
+	let done = $state(false);
+
+	async function performExorcism() {
+		const text = subject.trim();
+		if (!text || streaming) return;
+
+		streaming = true;
+		result = '';
+		done = false;
+
+		try {
+			const response = await fetch('/api/exorcism', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ subject: text })
+			});
+
+			if (!response.ok || !response.body) throw new Error();
+
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+
+			while (true) {
+				const { done: d, value } = await reader.read();
+				if (d) break;
+				result += decoder.decode(value, { stream: true });
+			}
+
+			done = true;
+		} catch {
+			result = 'Вибач, чадо. Демон виявився занадто сильним. Спробуй ще раз.';
+			done = true;
+		} finally {
+			streaming = false;
+		}
+	}
+
+	function reset() {
+		subject = '';
+		result = '';
+		done = false;
+	}
+</script>
+
+<div class="flex flex-1 flex-col items-center px-4 py-8" style="min-height: 100vh;">
+	<!-- Top bar -->
+	<div class="mb-6 flex w-full max-w-md items-center">
+		<a
+			href="{base}/"
+			class="font-body text-(--gold)/90 hover:text-(--gold) transition-colors text-lg no-underline"
+		>
+			&#8592; Назад
+		</a>
+	</div>
+
+	<!-- Title -->
+	<div class="mb-8 text-center">
+		<div class="mb-3 text-3xl">👹</div>
+		<h1 class="font-display text-3xl font-semibold tracking-wide text-(--gold-light) sm:text-4xl">
+			Екзорцизм
+		</h1>
+		<p class="font-body mt-3 text-base text-(--gold)/90 max-w-xs leading-relaxed text-center">
+			Вигнання демонів з проекту — плаваючих багів, мракобісся та нечистої сили в коді
+		</p>
+	</div>
+
+	<div class="h-[1px] w-40 bg-gradient-to-r from-transparent via-(--gold)/30 to-transparent mb-8"></div>
+
+	{#if !result}
+		<!-- Input form -->
+		<div class="w-full max-w-md">
+			<p class="font-body text-base text-(--gold)/80 mb-4 text-center">
+				Який демон мучить твій проект, чадо?
+			</p>
+
+			<div class="relative mb-3">
+				<span class="absolute inset-0 border border-(--gold) opacity-20 rounded-xl pointer-events-none"></span>
+				<span class="absolute top-[-2px] left-[-2px] h-3 w-3 border-t-2 border-l-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
+				<span class="absolute top-[-2px] right-[-2px] h-3 w-3 border-t-2 border-r-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
+				<span class="absolute bottom-[-2px] left-[-2px] h-3 w-3 border-b-2 border-l-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
+				<span class="absolute bottom-[-2px] right-[-2px] h-3 w-3 border-b-2 border-r-2 border-(--gold-light) opacity-50 pointer-events-none"></span>
+				<textarea
+					bind:value={subject}
+					placeholder="Опишіть одержимість: що саме відбувається, які симптоми, коли почалось..."
+					rows="4"
+					disabled={streaming}
+					class="font-body w-full resize-none rounded-xl bg-transparent px-5 py-4 text-base text-(--gold)/90 placeholder-(--gold)/60 focus:outline-none disabled:opacity-40"
+				></textarea>
+			</div>
+
+			<!-- Examples -->
+			<div class="mb-4 flex flex-wrap gap-2">
+				{#each examples as ex}
+					<button
+						onclick={() => subject = ex}
+						class="font-body text-base text-(--gold)/70 border border-(--gold)/20 rounded-lg px-3 py-1 hover:border-(--gold)/50 hover:text-(--gold)/80 transition-all bg-transparent cursor-pointer"
+					>
+						{ex}
+					</button>
+				{/each}
+			</div>
+
+			<button
+				onclick={performExorcism}
+				disabled={streaming || !subject.trim()}
+				class="font-display w-full rounded-xl border border-(--gold)/40 py-3 text-base tracking-widest text-(--gold-light) transition-all hover:border-(--gold)/70 hover:bg-(--gold)/5 disabled:cursor-not-allowed disabled:opacity-30 uppercase"
+			>
+				{streaming ? 'Ритуал екзорцизму...' : '👹 Вигнати демона'}
+			</button>
+		</div>
+	{:else}
+		<!-- Result -->
+		<div class="w-full max-w-md">
+			<div class="rounded-xl border border-(--gold)/20 px-6 py-5 mb-6" style="background: rgba(201,168,76,0.03);">
+				<p class="font-body text-base text-(--gold)/80 mb-3 tracking-widest uppercase">Отець Клод Дебагович</p>
+				{#if streaming}
+					<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{result}<span class="animate-pulse">▊</span></p>
+				{:else}
+					<p class="font-body text-base text-(--gold)/90 leading-relaxed whitespace-pre-wrap">{result}</p>
+				{/if}
+			</div>
+
+			{#if done}
+				<!-- Donation QR -->
+				<div class="mt-4 mb-4 flex flex-col items-center">
+					<p class="font-display mb-3 text-base tracking-widest text-(--gold)/80 uppercase">
+						Закріпити екзорцизм пожертвою
+					</p>
+					<a href="https://send.monobank.ua/jar/rQcpy7d5s" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-xl border border-(--gold)/20 shadow-[0_0_20px_rgba(201,168,76,0.08)] block">
+						<img
+							src="{base}/deciatyna.jpg"
+							alt="QR-код для пожертви"
+							class="w-48 sm:w-56"
+						/>
+					</a>
+				</div>
+
+				<button
+					onclick={reset}
+					class="font-display w-full rounded-xl border border-(--gold)/25 py-3 text-base tracking-widest text-(--gold)/80 transition-all hover:border-(--gold)/50 hover:text-(--gold) uppercase bg-transparent cursor-pointer"
+				>
+					Вигнати ще одного демона
+				</button>
+			{/if}
+		</div>
+	{/if}
+</div>
